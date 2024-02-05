@@ -52,7 +52,7 @@ class Rpc():
                         details = f"{gamemode} // {presence['partyOwnerMatchScoreAllyTeam']} - {presence['partyOwnerMatchScoreEnemyTeam']}"
 
                         mapText = self.map_dict.get(presence["matchMap"].lower())
-                        if mapText == "The Range":
+                        if mapText == "GALERIA":
                             mapImage = "splash_range_square"
                             details = "in Range"
                             agent_img = str(self.data.get("rank"))
@@ -67,7 +67,7 @@ class Rpc():
                             self.start_time = time.time()
 
                         self.rpc.update(
-                            state=f"In a Party ({presence['partySize']} of {presence['maxPartySize']})",
+                            state=f"En sala ({presence['partySize']} of {presence['maxPartySize']})",
                             details=details,
                             large_image=mapImage,
                             large_text=mapText,
@@ -86,9 +86,9 @@ class Rpc():
                             image_text = "VALORANT - Online"
 
                         if presence["partyAccessibility"] == "OPEN":
-                            party_string = "Open Party"
+                            party_string = "Sala Abierta"
                         else:
-                            party_string = "Closed Party"
+                            party_string = "Sala Cerrada"
 
                         if presence["partyState"] == "CUSTOM_GAME_SETUP":
                             gamemode = "Custom Game"
@@ -120,7 +120,7 @@ class Rpc():
 
 
                         self.rpc.update(
-                            state=f"In a Party ({presence['partySize']} of {presence['maxPartySize']})",
+                            state=f"En sala ({presence['partySize']} of {presence['maxPartySize']})",
                             details=f"Agent Select - {gamemode}",
                             large_image=mapImage,
                             large_text=mapText,
